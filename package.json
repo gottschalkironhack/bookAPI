@@ -24,10 +24,10 @@
     "dateformat": "^3.0.2",
     "debug": "~2.6.3",
     "dotenv": "^4.0.0",
-    "ejs": "^2.5.7",
+    "ejs": "3.1.7",
     "express": "~4.15.2",
     "jsonwebtoken": "^8.0.1",
-    "mongoose": "^4.12.0",
+    "mongoose": "6.3.6",
     "morgan": "~1.8.1",
     "serve-favicon": "~2.4.2"
   }
