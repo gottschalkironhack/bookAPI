@@ -2,24 +2,24 @@ const express = require('express');
 const router = express.Router();
 const Book = require('../models/book');
 
-router.get('/', (req, res) => {              
+router.get('/', (_req, res) => {              
   Book.find( {} , (err, bookData) => {
     if(err){
-      return next(err)
+      return next(err);
     }else{
-      return res.status(200).json(bookData)
+      return res.status(200).json(bookData);
     }
   })
 })
 
 router.get('/:id', (req, res, next) => {
-  const bookId = req.params.id
+  const bookId = req.params.id;
                                  
   Book.findById(bookId , (err, bookData) => {
     if(err){
-      return next(err)
+      return next(err);
     }else{
-      return res.status(200).json(bookData)
+      return res.status(200).json(bookData);
     }
   })
 })
@@ -33,15 +33,15 @@ router.post('/', (req, res, next) => {
   })
   newBook.save((err, newBook) => {
     if(err){
-    return next(err)
+    return next(err);
     }else{
-      return res.status(200).json(newBook)
+      return res.status(200).json(newBook);
     }
   })
 })
 
 router.put('/:id', (req, res, next) => {
-  const bookId = req.params.id
+  const bookId = req.params.id;
 
   const bookData = {
     title: req.body.bookTitle,
@@ -52,22 +52,22 @@ router.put('/:id', (req, res, next) => {
                                     
   Book.findByIdAndUpdate(bookId , bookData , { new: true }, (err, updatedBook) => {
     if(err){
-      return next(err)
+      return next(err);
     }else{
-      return res.status(200).json( updatedBook )
+      return res.status(200).json( updatedBook );
     }
   })
 })
 
 router.delete('/:id', (req, res, next) => {
-  const bookId = req.params.id                   
+  const bookId = req.params.id;                  
   Book.findByIdAndRemove(bookId , (err, bookData) => {
     if(err){
-      return next(err)
+      return next(err);
     }else{
-      return res.status(200).json(bookData)
+      return res.status(200).json(bookData);
     }
   })
 })
 
-module.exports = router
+module.exports = router;
